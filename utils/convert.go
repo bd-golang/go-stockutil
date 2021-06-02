@@ -3,6 +3,7 @@ package utils
 import (
 	"errors"
 	"fmt"
+	"github.com/shopspring/decimal"
 	"io"
 	"io/ioutil"
 	"reflect"
@@ -207,8 +208,11 @@ func ConvertTo(toType ConvertType, inI interface{}) (interface{}, error) {
 			v, err := ConvertHexToInteger(inI)
 			return float64(v), err
 		}
-
-		return strconv.ParseFloat(inS, 64)
+		de, err := decimal.NewFromString(inS)
+		if err != nil {
+			return de.IntPart(), err
+		}
+		return de.IntPart(), nil
 	case Integer:
 		if inTime, ok := inI.(time.Time); ok {
 			return int64(inTime.UnixNano()), nil

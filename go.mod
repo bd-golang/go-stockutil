@@ -38,6 +38,7 @@ require (
 	github.com/phayes/freeport v0.0.0-20180830031419-95f893ade6f2
 	github.com/pkg/sftp v1.12.0
 	github.com/sergi/go-diff v1.1.0 // indirect
+	github.com/shopspring/decimal v1.2.0 // indirect
 	github.com/urfave/negroni v1.0.0
 	github.com/ziutek/mymysql v1.5.4 // indirect
 	golang.org/x/crypto v0.0.0-20201217014255-9d1352758620
